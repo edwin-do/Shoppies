@@ -1,7 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 
+// var apiKey = config.API_KEY;
+var apiKey = process.env.REACT_APP_API_KEY;
+
 function App() {
+  fetch('http://www.omdbapi.com/?i=tt3896198&apikey=' + apiKey)
+  .then(response => response.json())
+  .then(data => console.log(data));
+
   return (
     <div className="App">
       <header className="App-header">
