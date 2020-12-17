@@ -3,10 +3,6 @@ import NominateBtn from './NominationBtn';
 
 const Results = props =>{
   
-  // function newNomination(title,year){
-  //     props.setList((list) => [...list, [title,year]] );
-  // }
-  
   if (props.results){
     console.log(props.list);
       return props.results.map((result) =>
