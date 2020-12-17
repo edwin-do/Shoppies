@@ -1,30 +1,40 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
 
 // var apiKey = config.API_KEY;
 var apiKey = process.env.REACT_APP_API_KEY;
 
 function App() {
-  fetch('http://www.omdbapi.com/?i=tt3896198&apikey=' + apiKey)
-  .then(response => response.json())
-  .then(data => console.log(data));
+  var search = "";
+
+  const [results,setResults] = useState([]);
+
+  async function handleSearch(s){
+    search = s;
+    // console.log(search);
+    await fetch('http://www.omdbapi.com/?i=tt3896198&apikey=' + apiKey + "&s=" + search)
+    .then(response => response.json())
+    .then(function(data){
+      setResults(data.Search);
+    });
+  }
+
+  function Result(){
+    if (results){
+      return results.map((result) => 
+      <li>{result.Title}</li> 
+      )}
+    else{
+      return <p>No Results</p>;
+    }
+  }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <input type="text" onChange={e => handleSearch(e.target.value)}></input>
+      <Result></Result>
+      
     </div>
   );
 }
