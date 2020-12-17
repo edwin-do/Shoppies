@@ -1,13 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react';
+import NominationList from './components/NominationList';
+import Results from './components/Results';
 
 // var apiKey = config.API_KEY;
 var apiKey = process.env.REACT_APP_API_KEY;
 
 function App() {
   var search = "";
-
   const [results,setResults] = useState([]);
   const [list, setList] = useState([]);
 
@@ -21,46 +22,12 @@ function App() {
     });
   }
 
-  const NominateBtn = props =>{
-    // console.log(props.title);
-    function updateList(){
-      var title = props.title;
-      var year = props.year;
-      setList((list) => [...list, [title,year]] );
-    }
-    return(
-      <button onClick={updateList}>Nominate</button>
-    )
-  }
-
-  const Result = () =>{
-    if (results){
-      return results.map((result) =>
-      <div>
-        <li>{result.Title}</li>
-        <NominateBtn title={result.Title} year={result.Year}></NominateBtn>
-      </div> 
-      )}
-    else{
-      return <p>No Results</p>;
-    }
-  }
-
-  const NominationList = () =>{
-    console.log(list);
-    return list.map((movie) =>
-      <div>
-        <p>{movie[0]}</p>
-        <p>{movie[1]}</p>
-      </div>
-    )}
-
   return (
 
     <div>
       <input type="text" onChange={e => handleSearch(e.target.value)}></input>
-      <Result></Result>
-      <NominationList></NominationList>      
+      <Results list={list} setList={setList} results={results}></Results>
+      <NominationList list={list} setList={setList}></NominationList>      
     </div>
   );
 }
