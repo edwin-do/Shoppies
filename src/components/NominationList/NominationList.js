@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Result from "../Results/Result";
-import RemoveBtn from '../Results/RemoveBtn';
 
 function NominationList (props){ 
 
@@ -12,10 +11,7 @@ function NominationList (props){
 
     return props.list.map((movie) =>
 
-    <div>
-          {!props.onList ? <Result onList={true} isNominated={false} results={props.results} setResults={props.setResults} list={props.list} setList={props.setList} Title={movie[0]} Year={movie[1]} ></Result>
-          : null }
-    </div>
+      <Result onList={true} isNominated={false} results={props.results} setResults={props.setResults} list={props.list} setList={props.setList} Title={movie[0]} Year={movie[1]} ></Result>
   )
 }
 

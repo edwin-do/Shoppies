@@ -7,7 +7,6 @@ const Result = props =>{
     function update (){
       
         props.setList((list) => [...list, [props.Title,props.Year]]);
-        props.setResults(props.results.filter(movie => movie.Title !== props.Title));
         setState(true);      
         console.log(props.results);
         console.log(props.list);
@@ -20,7 +19,7 @@ const Result = props =>{
 
     function removeNomination(title,year){
         props.setList(props.list.filter(movie => movie[0] !== title));
-        props.setResults((results) => [...results, {Title: title, Year:year}]);
+        props.setResults((results) => [...results]);
         setState(false);
 
         console.log(props.Title);
@@ -33,9 +32,8 @@ const Result = props =>{
 return (
     <div>
         <li>{props.Title}</li>
-        <button disabled={props.isNominated} onClick={update}>Nominate</button>
         {props.onList ? <RemoveBtn disabled={props.isNominated} removeNomination={removeNomination} setList={props.setList} list={props.list} Title={props.Title} Year={props.Year}>Remove</RemoveBtn> 
-        :  null }
+        : <button disabled={props.isNominated} onClick={update}>Nominate</button> }
     </div> 
  )}
 
