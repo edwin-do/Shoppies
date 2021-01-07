@@ -8,6 +8,8 @@ const NominateBtn = props =>{
       setState(!props.list.some(movie => movie[0] === props.title));
       props.setList((list) => [...list, [props.title,props.year]]);
 
+      console.log(props.list);
+
       if(props.list.length >= 4){
         console.log("WOW");
       }

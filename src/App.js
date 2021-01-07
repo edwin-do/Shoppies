@@ -1,15 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
 import React, { useState } from 'react';
-import NominationList from './components/NominationList';
-import Results from './components/Results';
+import NominationList from './components/NominationList/NominationList';
+import Results from './components/Results/Results';
+import './App.css';
 
 // var apiKey = config.API_KEY;
 var apiKey = process.env.REACT_APP_API_KEY;
 
 function App() {
   var search = "";
-  const [results,setResults] = useState([]);
+  const [results, setResults] = useState([]);
   const [list, setList] = useState([]);
 
   async function handleSearch(s){
@@ -26,8 +25,8 @@ function App() {
 
     <div>
       <input type="text" onChange={e => handleSearch(e.target.value)}></input>
-      <Results list={list} setList={setList} results={results}></Results>
-      <NominationList list={list} setList={setList}></NominationList>      
+      <Results list={list} setList={setList} results={results} setResults={setResults}></Results>
+      <NominationList list={list} setList={setList} results={results} setResults={setResults}></NominationList>      
     </div>
   );
 }
