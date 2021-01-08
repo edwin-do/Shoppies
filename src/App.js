@@ -26,7 +26,6 @@ function App() {
     <div>
       <input type="text" onChange={e => handleSearch(e.target.value)}></input>
       <ResultsList list={list} setList={setList} results={results} setResults={setResults} ></ResultsList>
-      <h1>Nomination List</h1>
       <NominationList list={list} setList={setList} results={results} setResults={setResults}></NominationList>      
     </div>
   );
