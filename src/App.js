@@ -3,10 +3,12 @@ import Layout from './components/Layout'
 import NominationList from './components/NominationList/NominationList';
 import ResultsList from './components/ResultsList/ResultsList';
 import SearchBar from './components/SearchBar/SearchBar';
+import Banner from './components/Banner';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button'
 
 
 
@@ -29,19 +31,20 @@ function App() {
   }
 
   return (
-
     <Layout>
       <SearchBar handleSearch={handleSearch}></SearchBar>
       {/* <input type="text" onChange={e => handleSearch(e.target.value)}></input> */}
       <Row>
         <Col>
-          <ResultsList list={list} setList={setList} results={results} setResults={setResults} ></ResultsList>
+          <ResultsList list={list} setList={setList} results={results} setResults={setResults}></ResultsList>
         </Col>
 
         <Col>
           <NominationList list={list} setList={setList} results={results} setResults={setResults}></NominationList>      
         </Col>
-      </Row>    
+      </Row>
+      {console.log(list.length)} 
+      {list.length >= 5 ? <Banner></Banner> : null }
     </Layout>
   );
 }
