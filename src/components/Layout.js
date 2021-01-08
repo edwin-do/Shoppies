@@ -1,12 +1,15 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
 import Aux from '../hoc/Auxiliary';
 
 const Layout = (props) => {
     return (
         <Aux>
-            <main>
-                {props.children}
-            </main>
+            <Container>
+                <main>
+                    {props.children}
+                </main>
+            </Container>
         </Aux>
     )
 }
