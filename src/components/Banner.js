@@ -6,7 +6,7 @@ function Banner(props) {
   const handleClose = () => setShow(false);
 
     return (
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Header closeButton>
           <Modal.Title>Nomination Completed!</Modal.Title>
         </Modal.Header>

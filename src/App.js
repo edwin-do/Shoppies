@@ -43,7 +43,6 @@ function App() {
           <NominationList list={list} setList={setList} results={results} setResults={setResults}></NominationList>      
         </Col>
       </Row>
-      {console.log(list.length)} 
       {list.length >= 5 ? <Banner></Banner> : null }
     </Layout>
   );
