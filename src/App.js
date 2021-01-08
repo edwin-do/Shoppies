@@ -21,6 +21,7 @@ function App() {
   const [list, setList] = useState([]);
 
   async function handleSearch(s){
+
     search = s;
     // console.log(search);
     await fetch('http://www.omdbapi.com/?i=tt3896198&apikey=' + apiKey + "&s=" + search)
@@ -32,16 +33,11 @@ function App() {
 
   return (
     <Layout>
+      <h1 className="mt-5">Shoppies</h1>
       <SearchBar handleSearch={handleSearch}></SearchBar>
-      {/* <input type="text" onChange={e => handleSearch(e.target.value)}></input> */}
       <Row>
-        <Col>
-          <ResultsList list={list} setList={setList} results={results} setResults={setResults}></ResultsList>
-        </Col>
-
-        <Col>
-          <NominationList list={list} setList={setList} results={results} setResults={setResults}></NominationList>      
-        </Col>
+        <Col><ResultsList list={list} setList={setList} results={results} setResults={setResults}/></Col>
+        <Col><NominationList list={list} setList={setList} results={results} setResults={setResults}/></Col>
       </Row>
       {list.length >= 5 ? <Banner></Banner> : null }
     </Layout>

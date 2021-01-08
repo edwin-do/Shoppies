@@ -16,11 +16,12 @@ const result = props =>{
 
 return (
     <div>
-        <li>{props.Title}</li>
-        { !props.isNominated 
-        ? <button disabled={props.limitReached} onClick={addNomination}>Nominate</button> 
-        : <button onClick={() => removeNomination(props.id)}>Remove</button>
-        } 
+        <p>{props.Title}
+          { !props.isNominated 
+          ? <button className="ml-3 btn-secondary" disabled={props.limitReached} onClick={addNomination}>Nominate</button> 
+          : <button className="ml-3 btn-danger" onClick={() => removeNomination(props.id)}>Remove</button>
+          } 
+        </p>
     </div> 
  )}
 

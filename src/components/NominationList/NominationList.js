@@ -23,7 +23,7 @@ const NominationList = props =>{
     return (
       <div>
         {/* {show ? <Banner setShow={setShow} handleClose={handleClose}></Banner> : null } */}
-        <h1>Nomination List</h1>
+        <h4>Nomination List</h4>
         {props.list.map((movie,i) =>
         <Result key={i} id={movie[2]} isNominated={true} results={props.results} setResults={props.setResults} list={props.list} setList={props.setList} Title={movie[0]} Year={movie[1]} ></Result>
         )}

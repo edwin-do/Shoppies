@@ -10,7 +10,7 @@ const resultsList = props =>{
     // check limit and if it exists in nomination list
     return (
       <div>
-        <h1>Search Results</h1>
+        <h4>Search Results</h4>
         {props.results.map((result,i) =>
         
           {if (props.list.length >= 5){
@@ -32,7 +32,7 @@ const resultsList = props =>{
     else{
       return (
         <div>
-          <h1>Search Results</h1>
+          <h4>Search Results</h4>
           <p>Looks like there's no results...Try typing something else!</p>
         </div>
       );
