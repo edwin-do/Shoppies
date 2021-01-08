@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import Layout from './components/Layout'
 import NominationList from './components/NominationList/NominationList';
 import ResultsList from './components/ResultsList/ResultsList';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // var apiKey = config.API_KEY;
 var apiKey = process.env.REACT_APP_API_KEY;
@@ -23,11 +25,11 @@ function App() {
 
   return (
 
-    <div>
+    <Layout>
       <input type="text" onChange={e => handleSearch(e.target.value)}></input>
       <ResultsList list={list} setList={setList} results={results} setResults={setResults} ></ResultsList>
       <NominationList list={list} setList={setList} results={results} setResults={setResults}></NominationList>      
-    </div>
+    </Layout>
   );
 }
 
