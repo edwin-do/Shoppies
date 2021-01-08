@@ -8,11 +8,21 @@ function NominationList (props){
     props.setResults();
   }
 
-
+  if (props.list.length < 5 ){
+    console.log(props.list.length);
     return props.list.map((movie) =>
-
       <Result onList={true} isNominated={false} results={props.results} setResults={props.setResults} list={props.list} setList={props.setList} Title={movie[0]} Year={movie[1]} ></Result>
-  )
+    )
+  }
+  else{
+    return (<p>Limit Reached</p>)
+  }
+
+
+  //   return props.list.map((movie) =>
+
+  //     <Result onList={true} isNominated={false} results={props.results} setResults={props.setResults} list={props.list} setList={props.setList} Title={movie[0]} Year={movie[1]} ></Result>
+  // )
 }
 
 export default NominationList;

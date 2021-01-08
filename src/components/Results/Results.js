@@ -3,6 +3,8 @@ import Result from './Result';
 
 const Results = props =>{
 
+  console.log(props.list.length);
+
   if (props.results){
     // console.log(props.list);
       return props.results.map((result) =>
