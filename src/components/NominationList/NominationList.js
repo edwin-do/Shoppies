@@ -1,7 +1,7 @@
 import React  from 'react';
 import Result from "../ResultsList/Result";
 
-const NominationList = props =>{ 
+const nominationList = props =>{ 
     // console.log("Nomination: " + props.list);
     return (
       <div>
@@ -13,4 +13,4 @@ const NominationList = props =>{
       )
 }
 
-export default NominationList;
+export default nominationList;

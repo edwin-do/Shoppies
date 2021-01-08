@@ -1,7 +1,7 @@
 import React from 'react';
 import Result from './Result';
 
-const ResultsList = props =>{
+const resultsList = props =>{
 
   // checks if results exist
   if (props.results){
@@ -29,4 +29,4 @@ const ResultsList = props =>{
     }
   }
 
-export default ResultsList;
+export default resultsList;

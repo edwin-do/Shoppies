@@ -1,10 +1,9 @@
 import React from 'react';
 
-const Result = props =>{ 
+const result = props =>{ 
 
     function addNomination (){
         // adds nomination to the list and refreshes results
-        console.log(props.id);
         props.setList((list) => [...list, [props.Title,props.Year,props.id]]);
         props.setResults((results) => [...results]);
       }
@@ -25,4 +24,4 @@ return (
     </div> 
  )}
 
-export default Result;
+export default result;
