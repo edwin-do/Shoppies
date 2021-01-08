@@ -7,7 +7,7 @@ import './App.css';
 var apiKey = process.env.REACT_APP_API_KEY;
 
 function App() {
-  var search = "";
+  let search = "";
   const [results, setResults] = useState([]);
   const [list, setList] = useState([]);
 
