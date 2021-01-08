@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import NominationList from './components/NominationList/NominationList';
-import Results from './components/Results/Results';
+import ResultsList from './components/ResultsList/ResultsList';
 import './App.css';
 
 // var apiKey = config.API_KEY;
@@ -25,7 +25,7 @@ function App() {
 
     <div>
       <input type="text" onChange={e => handleSearch(e.target.value)}></input>
-      <Results list={list} setList={setList} results={results} setResults={setResults} ></Results>
+      <ResultsList list={list} setList={setList} results={results} setResults={setResults} ></ResultsList>
       <h1>Nomination List</h1>
       <NominationList list={list} setList={setList} results={results} setResults={setResults}></NominationList>      
     </div>
