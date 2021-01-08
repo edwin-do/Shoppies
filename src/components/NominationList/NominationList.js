@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React  from 'react';
 import Result from "../ResultsList/Result";
 
 function NominationList (props){ 
