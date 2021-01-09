@@ -8,10 +8,12 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faFacebook, faTwitter, faLinkedin} from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope} from '@fortawesome/free-solid-svg-icons'
 import Button from 'react-bootstrap/Button'
 
-
-
+library.add(faFacebook, faTwitter, faLinkedin, faEnvelope);
 
 // var apiKey = config.API_KEY;
 var apiKey = process.env.REACT_APP_API_KEY;
