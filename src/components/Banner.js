@@ -15,7 +15,12 @@ function Banner(props) {
           {props.list.map((nomination,i) => <div key={i}>{nomination[0]}</div>)}
 
           Share your nominations with your friends!
-          <a href="https://www.google.ca" target="blank" rel="noreferrer noopener" alt="share">Share </a>
+          <div>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.google.com/" target="blank" rel="noreferrer noopener" alt="share">Facebook </a>
+            <a href="https://twitter.com/intent/tweet?url=https://www.google.com/&text=Nominate your favourite movies for the upcoming Shoppies!" target="blank" rel="noreferrer noopener" alt="share">Twitter</a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.google.com/&title=&summary=Nominate your favourite movies for the upcoming Shoppies! &source=Shoppies" target="blank" rel="noreferrer noopener" alt="share">LinkedIn</a>
+            <a href="mailto:info@example.com?&subject=&body=https://www.google.com/ Nominate your favourite movies for the upcoming Shoppies! " target="blank" rel="noreferrer noopener" alt="share">Email</a>           
+          </div>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
