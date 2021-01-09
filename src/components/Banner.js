@@ -15,9 +15,7 @@ function Banner(props) {
           {props.list.map((nomination,i) => <div key={i}>{nomination[0]}</div>)}
 
           Share your nominations with your friends!
-          <Button variant="primary" onClick={handleClose}>
-            Share
-          </Button>
+          <a href="https://www.google.ca" target="blank" rel="noreferrer noopener" alt="share">Share </a>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

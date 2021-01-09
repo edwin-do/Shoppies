@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button'
 
 const result = props =>{ 
 
@@ -15,13 +16,15 @@ const result = props =>{
       }
 
 return (
-    <div>
-        <p>{props.Title}
+    <div className="card">
+      <div className="card-body">
+        <p className="card-title">{props.Title} (<span className="card-text">{props.Year}</span>)
           { !props.isNominated 
-          ? <button className="ml-3 btn-secondary" disabled={props.limitReached} onClick={addNomination}>Nominate</button> 
-          : <button className="ml-3 btn-danger" onClick={() => removeNomination(props.id)}>Remove</button>
+          ? <Button variant="secondary" size="sm" className="float-right" disabled={props.limitReached} onClick={!props.limitReached ? addNomination : null}>Nominate</Button> 
+          : <Button variant="danger" size="sm" className="float-right" onClick={() => removeNomination(props.id)}>Remove</Button>
           } 
         </p>
+      </div>
     </div> 
  )}
 
