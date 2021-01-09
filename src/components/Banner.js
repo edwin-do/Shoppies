@@ -11,10 +11,10 @@ function Banner(props) {
     return (
       <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Header closeButton>
-          <Modal.Title>Nomination Completed!</Modal.Title>
+          <Modal.Title className="text-dark">Nomination Completed!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        <p className="lead">Thanks for your nominations! Everyone has a limit of 5 Nominations.</p>
+        <p className="lead text-dark">Thanks for your nominations! Everyone has a limit of 5 Nominations.</p>
           
         <div className="text-center">
             {props.list.map((nomination,i) => 

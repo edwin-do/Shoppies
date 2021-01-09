@@ -4,13 +4,13 @@ import NominationList from './components/NominationList/NominationList';
 import ResultsList from './components/ResultsList/ResultsList';
 import SearchBar from './components/SearchBar/SearchBar';
 import Banner from './components/Banner';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faFacebook, faTwitter, faLinkedin} from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope} from '@fortawesome/free-solid-svg-icons'
+import './App.css';
 
 library.add(faFacebook, faTwitter, faLinkedin, faEnvelope);
 
@@ -34,8 +34,8 @@ function App() {
   }
 
   return (
-    <Layout>
-      <h1 className="mt-5">Shoppies</h1>
+    <Layout className={"background"}>
+      <h1 className="text-center mt-5">Shoppies</h1>
       <SearchBar handleSearch={handleSearch}></SearchBar>
       <Row>
         <Col><ResultsList list={list} setList={setList} results={results} setResults={setResults}/></Col>

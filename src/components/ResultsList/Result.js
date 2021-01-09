@@ -16,7 +16,7 @@ const result = props =>{
       }
 
 return (
-    <div className="card">
+    <div className="card bg-dark">
       <div className="card-body">
         <p className="card-title">{props.Title} (<span className="card-text">{props.Year}</span>)
           { !props.isNominated 

@@ -9,7 +9,7 @@ const resultsList = props =>{
     // check limit and if it exists in nomination list
     return (
       <div>
-        <h4>Search Results</h4>
+        <h4 className="text-center font-weight-light">Search Results</h4>
         {props.results.map((result,i) =>
         
           {if (props.list.length >= 5){
