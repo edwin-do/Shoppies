@@ -12,7 +12,9 @@ const result = props =>{
     function removeNomination(id){
       // removes nomination from the list and refreshes results
         props.setList(props.list.filter(movie => movie[2] !== id));
-        props.setResults((results) => [...results]);
+        if (props.results){
+          props.setResults((results) => [...results]);
+        }
       }
 
 return (

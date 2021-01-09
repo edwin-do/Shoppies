@@ -34,8 +34,11 @@ function App() {
   }
 
   return (
-    <Layout className={"background"}>
+    <Layout>
       <h1 className="text-center mt-5">Shoppies</h1>
+      <h5 className="text-center font-weight-light">
+        Nominate your favourite movies for the Shoppies!
+      </h5>
       <SearchBar handleSearch={handleSearch}></SearchBar>
       <Row>
         <Col><ResultsList list={list} setList={setList} results={results} setResults={setResults}/></Col>
