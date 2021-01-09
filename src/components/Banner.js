@@ -14,18 +14,18 @@ function Banner(props) {
           <Modal.Title>Nomination Completed!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Thanks for your nominations! Everyone has a limit of 5 Nominations. 
-          {props.list.map((nomination,i) => <div key={i}>{nomination[0]}</div>)}
-
-          Share your nominations with your friends!
-          <div>
+        <p className="lead">Thanks for your nominations! Everyone has a limit of 5 Nominations.</p>
+          
+        <div className="text-center">
+            {props.list.map((nomination,i) => 
+            <p className="text-body" key={i}>{i+1}. <span>{nomination[0]} ({nomination[1]}) </span></p>)}
+          <p>Share your nominations with your friends!</p>
             {socials.map(social => {
               return(<div className="d-inline mr-3" key={social.name}>
                   <a className="h1" href={social.url} style={{color: social.color}}target="blank" rel="noreferrer noopener" alt="social-link" ><FontAwesomeIcon icon={social.icon} /></a>
               </div>);
             })}
-
-          </div>
+        </div>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
