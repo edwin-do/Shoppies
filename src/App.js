@@ -39,7 +39,7 @@ function App() {
         <Col><ResultsList list={list} setList={setList} results={results} setResults={setResults}/></Col>
         <Col><NominationList list={list} setList={setList} results={results} setResults={setResults}/></Col>
       </Row>
-      {list.length >= 5 ? <Banner></Banner> : null }
+      {list.length >= 5 ? <Banner list={list}></Banner> : null }
     </Layout>
   );
 }

@@ -10,7 +10,15 @@ function Banner(props) {
         <Modal.Header closeButton>
           <Modal.Title>Nomination Completed!</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Thanks for your nominations! Everyone has a limit of 5 Nominations. </Modal.Body>
+        <Modal.Body>
+          Thanks for your nominations! Everyone has a limit of 5 Nominations. 
+          {props.list.map((nomination,i) => <div key={i}>{nomination[0]}</div>)}
+
+          Share your nominations with your friends!
+          <Button variant="primary" onClick={handleClose}>
+            Share
+          </Button>
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Leave
