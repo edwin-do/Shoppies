@@ -11,7 +11,6 @@ import Col from 'react-bootstrap/Col';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faFacebook, faTwitter, faLinkedin} from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope} from '@fortawesome/free-solid-svg-icons'
-import Button from 'react-bootstrap/Button'
 
 library.add(faFacebook, faTwitter, faLinkedin, faEnvelope);
 
