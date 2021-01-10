@@ -16,10 +16,10 @@ function Banner(props) {
         <Modal.Body>
         <p className="lead text-dark">Thanks for your nominations! Everyone has a limit of 5 Nominations.</p>
           
-        <div className="text-center">
+        <div className="text-center text-dark">
             {props.list.map((nomination,i) => 
-            <p className="text-body" key={i}>{i+1}. <span>{nomination[0]} ({nomination[1]}) </span></p>)}
-          <p>Share your nominations with your friends!</p>
+            <p key={i}>{i+1}. <span>{nomination[0]} ({nomination[1]}) </span></p>)}
+            <p>Share your nominations with your friends!</p>
             {socials.map(social => {
               return(<div className="d-inline mr-3" key={social.name}>
                   <a className="h1" href={social.url} style={{color: social.color}}target="blank" rel="noreferrer noopener" alt="social-link" ><FontAwesomeIcon icon={social.icon} /></a>
