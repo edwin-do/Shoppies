@@ -3,16 +3,16 @@ import Layout from './components/Layout'
 import NominationList from './components/NominationList/NominationList';
 import ResultsList from './components/ResultsList/ResultsList';
 import SearchBar from './components/SearchBar/SearchBar';
-import Banner from './components/Banner';
+import Banner from './components/Banner/Banner';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faFacebook, faTwitter, faLinkedin} from '@fortawesome/free-brands-svg-icons'
-import { faEnvelope} from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faSearch} from '@fortawesome/free-solid-svg-icons'
 import './App.css';
 
-library.add(faFacebook, faTwitter, faLinkedin, faEnvelope);
+library.add(faFacebook, faTwitter, faLinkedin, faEnvelope, faSearch);
 
 // var apiKey = config.API_KEY;
 var apiKey = process.env.REACT_APP_API_KEY;
@@ -44,7 +44,7 @@ function App() {
         <Col><ResultsList list={list} setList={setList} results={results} setResults={setResults}/></Col>
         <Col><NominationList list={list} setList={setList} results={results} setResults={setResults}/></Col>
       </Row>
-      {list.length >= 5 ? <Banner list={list}></Banner> : null }
+      {list.length >= 5 ? <Banner list={list} setList={setList}></Banner> : null }
     </Layout>
   );
 }

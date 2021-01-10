@@ -2,11 +2,16 @@ import React, {useState} from 'react'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {socials} from '../components/socials'
+import {socials} from '../socials'
 
 function Banner(props) {
   const [show, setShow] = useState(true);
   const handleClose = () => setShow(false);
+
+  function clearListHandler(){
+    props.setList([]);
+    setShow(false);
+  }
 
     return (
       <Modal show={show} onHide={handleClose} animation={false}>
@@ -19,17 +24,19 @@ function Banner(props) {
         <div className="text-center text-dark">
             {props.list.map((nomination,i) => 
             <p key={i}>{i+1}. <span>{nomination[0]} ({nomination[1]}) </span></p>)}
-            <p>Share your nominations with your friends!</p>
+            <p class="lead">Share your nominations with your friends!</p>
             {socials.map(social => {
               return(<div className="d-inline mr-3" key={social.name}>
-                  <a className="h1" href={social.url} style={{color: social.color}}target="blank" rel="noreferrer noopener" alt="social-link" ><FontAwesomeIcon icon={social.icon} /></a>
+                  <a className="h1" href={social.url} style={{color: social.color}}target="blank" rel="noreferrer noopener" alt="social-link" >
+                    <FontAwesomeIcon icon={social.icon} />
+                  </a>
               </div>);
             })}
         </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Leave
+          <Button variant="secondary" onClick={clearListHandler}>
+            Restart with new list
           </Button>
           <Button variant="primary" onClick={handleClose}>
             Change Nominations
