@@ -23,7 +23,7 @@ return (
         <p className="card-title">{props.Title} (<span className="card-text">{props.Year}</span>)
           { !props.isNominated 
           ? <Button variant="secondary" size="sm" className="float-right" disabled={props.limitReached} onClick={!props.limitReached ? addNomination : null}>Nominate</Button> 
-          : <Button variant="danger" size="sm" className="float-right" onClick={() => removeNomination(props.id)}>Remove</Button>
+          : <button size="sm" className=" btn float-right bg-transparent button-small text-light" onClick={() => removeNomination(props.id)}>X</button>
           } 
         </p>
       </div>

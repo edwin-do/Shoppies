@@ -24,7 +24,7 @@ function Banner(props) {
         <div className="text-center text-dark">
             {props.list.map((nomination,i) => 
             <p key={i}>{i+1}. <span>{nomination[0]} ({nomination[1]}) </span></p>)}
-            <p class="lead">Share your nominations with your friends!</p>
+            <p className="lead">Share your nominations with your friends!</p>
             {socials.map(social => {
               return(<div className="d-inline mr-3" key={social.name}>
                   <a className="h1" href={social.url} style={{color: social.color}}target="blank" rel="noreferrer noopener" alt="social-link" >
