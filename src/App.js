@@ -20,7 +20,6 @@ library.add(faFacebook, faTwitter, faLinkedin, faShopify, faEnvelope, faSearch, 
 var apiKey = process.env.REACT_APP_API_KEY;
 
 function App() {
-  // let search = "";
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
   const [list, setList] = useState([]);
@@ -29,7 +28,6 @@ function App() {
     setSearch("");
     setResults([]);
   }
-
   const updateSearchHandler = (s) => setSearch(s);
 
   async function handleSearch(s){
