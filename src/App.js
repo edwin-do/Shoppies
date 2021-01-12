@@ -33,7 +33,7 @@ function App() {
   async function handleSearch(s){
     // console.log(search);
     updateSearchHandler(s);
-    await fetch('https://www.omdbapi.com/?i=tt3896198&apikey=' + apiKey + "&s=" + s)
+    await fetch('https://www.omdbapi.com/?i=tt3896198&apikey=' + apiKey + "&s=" + s + "&type=movie")
     .then(response => response.json())
     .then(function(data){
       setResults(data.Search);
