@@ -14,7 +14,13 @@ const searchBar = props => {
         aria-label="Search movie"
         aria-describedby="basic-addon2"
         onChange={e => props.handleSearch(e.target.value)}
+        value={props.search}
         />
+        <InputGroup.Append onClick={props.clearSearchHandler}>
+            <InputGroup.Text className="bg-white">
+                <FontAwesomeIcon icon={"times-circle"} />
+            </InputGroup.Text>
+        </InputGroup.Append>
   </InputGroup>
     )}
 
