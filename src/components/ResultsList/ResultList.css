@@ -1,0 +1,18 @@
+.pagination {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .pagination a {
+    color: #ffffff;
+  }
+  
+  .pagination__link_active a {
+    color: rgb(66, 94, 219);
+    background-color: #2f3fcf;
+  }
+  
+  .pagination__link_disabled a {
+    color: rgb(74, 74, 75);
+  }

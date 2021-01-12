@@ -1,6 +1,7 @@
 import React from 'react';
 import Result from './Result';
 import ReactPaginate from 'react-paginate';
+import './ResultList.css';
 
 const resultsList = props =>{
 
@@ -28,8 +29,13 @@ const resultsList = props =>{
           onPageChange={props.newPageHandler} 
           pageCount={props.numOfResults/10} 
           pageRangeDisplayed={2} 
-          marginPagesDisplayed={2}>
-        </ReactPaginate>
+          previousLabel={"←"}
+          nextLabel={"→"}
+          marginPagesDisplayed={1}
+          containerClassName={"pagination"}
+          disabledClassName={"pagination__link_disabled"}
+          activeClassName={"pagination__link_active"}
+        />
 
       </div>)
       }
@@ -37,7 +43,7 @@ const resultsList = props =>{
       return (
         <div>
           <h4 className="text-center font-weight-light mt-3">Search Results</h4>
-          <p className="text-center mt-5">Looks like there's no results...Try typing something else!</p>
+          <p className="text-center mt-5">Looks like there's no results...Try typing more specific or something else!</p>
         </div>
       );
     }
