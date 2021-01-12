@@ -23,37 +23,24 @@ function App() {
   const [results, setResults] = useState([]);
   const [numOfResults, setNumOfResults] = useState(0);
   const [list, setList] = useState([]);
-  const [page, setPage] = useState(1);
-
 
   const clearSearchHandler = () => {
     setSearch("");
-    setPage(1);
     setResults([]);
   }
   const updateSearchHandler = (s) => setSearch(s);
-  const updatePageHandler = (p) => setPage(p);
 
-  async function newPageHandler(direction){
-    let p = 1;
-    if (direction === "next"){
-      p = page+1;
-    }
-    else if (direction === "prev"){
-      p=page-1;
-    }
-    updatePageHandler(p);
-    await fetch('https://www.omdbapi.com/?apikey=' + apiKey + "&s=" + search + "&type=movie&page=" + p)
+  async function newPageHandler({ selected: selectedPage }){
+    await fetch('https://www.omdbapi.com/?apikey=' + apiKey + "&s=" + search + "&type=movie&page=" + (selectedPage+1))
     .then(response => response.json())
     .then(function(data){
       setResults(data.Search);
+      console.log(selectedPage)
     });
   }
-  
 
   async function handleSearch(s){
     updateSearchHandler(s);
-    setPage(1);
     await fetch('https://www.omdbapi.com/?apikey=' + apiKey + "&s=" + s + "&type=movie&page=1")
     .then(response => response.json())
     .then(function(data){

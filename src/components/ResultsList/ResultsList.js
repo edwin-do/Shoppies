@@ -1,25 +1,12 @@
 import React from 'react';
 import Result from './Result';
-import {Pagination} from 'react-bootstrap'
+import ReactPaginate from 'react-paginate';
 
 const resultsList = props =>{
 
   // checks if results exist
   if (props.results){
 
-    let active = 1;
-    let pages = props.numOfResults/10;
-    let items = [];
-
-    for (let i = 1; i < pages; i++) {
-      items.push(
-        <Pagination.Item key={i} active={i === active}>
-          {i}
-        </Pagination.Item>
-      );
-    }
-
-    
     // check limit and if it exists in nomination list
     return (
       <div>
@@ -37,11 +24,12 @@ const resultsList = props =>{
           }}
         
         )}
-        <Pagination>
-          {items}
-          <Pagination.Item onClick={() => props.newPageHandler("next")}>Next Page</Pagination.Item>
-          <Pagination.Item onClick={() => props.newPageHandler("prev")}>Previous Page</Pagination.Item>
-        </Pagination>
+        <ReactPaginate 
+          onPageChange={props.newPageHandler} 
+          pageCount={props.numOfResults/10} 
+          pageRangeDisplayed={2} 
+          marginPagesDisplayed={2}>
+        </ReactPaginate>
 
       </div>)
       }
