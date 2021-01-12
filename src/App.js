@@ -16,7 +16,6 @@ import './App.css';
 
 library.add(faFacebook, faTwitter, faLinkedin, faShopify, faEnvelope, faSearch, faPlusCircle, faTrashAlt, faInfoCircle, faTimesCircle);
 
-// var apiKey = config.API_KEY;
 var apiKey = process.env.REACT_APP_API_KEY;
 
 function App() {
@@ -31,7 +30,6 @@ function App() {
   const updateSearchHandler = (s) => setSearch(s);
 
   async function handleSearch(s){
-    // console.log(search);
     updateSearchHandler(s);
     await fetch('https://www.omdbapi.com/?i=tt3896198&apikey=' + apiKey + "&s=" + s + "&type=movie")
     .then(response => response.json())
