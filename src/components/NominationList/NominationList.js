@@ -17,9 +17,12 @@ const NominationList = props =>{
         )
         : <p className="text-center mt-5">Remember those movies you like? Yeah, they belong here :) </p>}
         {props.list.length > 0 & props.list.length < 5 
-        ? <div>
-            <p className="text-center mt-3">You can still nominate {5 - props.list.length} movies</p>
-            <Button className="text-center" onClick={clearListHandler}>Clear List</Button>
+        ? <div className="text-center mt-5">
+            <p className="text-center font-weight-lighter mb-3">You can still nominate {5 - props.list.length} movies</p>
+            <Button variant="secondary" size="sm" onClick={clearListHandler}>
+              Clear List
+            </Button>
+            {/* < className="text-center" onClick={clearListHandler}>Clear List</p> */}
           </div>
         : null}
       </div>
