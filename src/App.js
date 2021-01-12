@@ -21,20 +21,45 @@ var apiKey = process.env.REACT_APP_API_KEY;
 function App() {
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
+  const [numOfResults, setNumOfResults] = useState(0);
   const [list, setList] = useState([]);
+  const [page, setPage] = useState(1);
+
 
   const clearSearchHandler = () => {
     setSearch("");
+    setPage(1);
     setResults([]);
   }
   const updateSearchHandler = (s) => setSearch(s);
+  const updatePageHandler = (p) => setPage(p);
 
-  async function handleSearch(s){
-    updateSearchHandler(s);
-    await fetch('https://www.omdbapi.com/?i=tt3896198&apikey=' + apiKey + "&s=" + s + "&type=movie")
+  async function newPageHandler(direction){
+    let p = 1;
+    if (direction === "next"){
+      p = page+1;
+    }
+    else if (direction === "prev"){
+      p=page-1;
+    }
+    updatePageHandler(p);
+    await fetch('https://www.omdbapi.com/?apikey=' + apiKey + "&s=" + search + "&type=movie&page=" + p)
     .then(response => response.json())
     .then(function(data){
       setResults(data.Search);
+    });
+  }
+  
+
+  async function handleSearch(s){
+    updateSearchHandler(s);
+    setPage(1);
+    await fetch('https://www.omdbapi.com/?apikey=' + apiKey + "&s=" + s + "&type=movie&page=1")
+    .then(response => response.json())
+    .then(function(data){
+      setResults(data.Search);
+      setNumOfResults(data.totalResults);
+      console.log(data.totalResults);
     });
   }
 
@@ -47,7 +72,7 @@ function App() {
       <SearchBar search={search} handleSearch={handleSearch} clearSearchHandler={clearSearchHandler}></SearchBar>
       <UserHelp/>
       <Row>
-        <Col sm={12} md={6}><ResultsList list={list} setList={setList} results={results} setResults={setResults}/></Col>
+        <Col sm={12} md={6}><ResultsList list={list} setList={setList} results={results} setResults={setResults} numOfResults={numOfResults} newPageHandler={newPageHandler} /></Col>
         <Col sm={12} md={6}><NominationList list={list} setList={setList} results={results} setResults={setResults}/></Col>
       </Row>
       {list.length >= 5 ? <Banner list={list} setList={setList}></Banner> : null }
