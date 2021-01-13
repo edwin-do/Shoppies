@@ -21,9 +21,12 @@ var apiKey = process.env.REACT_APP_API_KEY;
 function App() {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
+  const [numOfResults, setNumOfResults] = useState(0);
+
   const updateSearchHandler = (s) => setSearch(s);
   const clearSearchHandler = () => setSearch("");
   const newPageHandler = ({selected: selectedPage}) => setPage(selectedPage+1);
+
   useEffect(() => {
     let url ='https://www.omdbapi.com/?apikey=' + apiKey + "&s=" + search + "&type=movie&page=" + page;
     fetch(url)
@@ -34,32 +37,15 @@ function App() {
     });
   },[search,page])
  
-
   const [results, setResults] = useState([]);
-  const [numOfResults, setNumOfResults] = useState(0);
+
   const [list, setList] = useState([]);
+  const addNominationHandler = (title,year,id,poster) => setList((list) => [...list, [title,year,id,poster]]);
+  const removeNominationHandler = (id) => setList(list.filter(movie => movie[2] !== id));
 
-
-
-
-
-  // async function newPageHandler({ selected: selectedPage }){
-  //   await fetch('https://www.omdbapi.com/?apikey=' + apiKey + "&s=" + search + "&type=movie&page=" + (selectedPage+1))
-  //   .then(response => response.json())
-  //   .then(function(data){
-  //     setResults(data.Search);
-  //   });
-  // }
-
-  // async function handleSearch(s){
-  //   updateSearchHandler(s);
-  //   await fetch('https://www.omdbapi.com/?apikey=' + apiKey + "&s=" + s + "&type=movie&page=1")
-  //   .then(response => response.json())
-  //   .then(function(data){
-  //     setResults(data.Search);
-  //     setNumOfResults(data.totalResults);
-  //   });
-  // }
+  useEffect(() => {
+    setResults(results);
+  },[list,results])
 
   return (
     <Layout>
@@ -70,8 +56,8 @@ function App() {
       <SearchBar search={search} updateSearchHandler={updateSearchHandler} clearSearchHandler={clearSearchHandler}></SearchBar>
       <UserHelp/>
       <Row>
-        <Col sm={12} md={6}><ResultsList list={list} setList={setList} results={results} setResults={setResults} numOfResults={numOfResults} newPageHandler={newPageHandler} /></Col>
-        <Col sm={12} md={6}><NominationList list={list} setList={setList} results={results} setResults={setResults}/></Col>
+        <Col sm={12} md={6}><ResultsList addNominationHandler={addNominationHandler} removeNominationHandler={removeNominationHandler} list={list} setList={setList} results={results} setResults={setResults} numOfResults={numOfResults} newPageHandler={newPageHandler} /></Col>
+        <Col sm={12} md={6}><NominationList removeNominationHandler={removeNominationHandler} list={list} setList={setList} results={results} setResults={setResults}/></Col>
       </Row>
       {list.length >= 5 ? <Banner list={list} setList={setList}></Banner> : null }
     </Layout>
