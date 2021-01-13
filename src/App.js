@@ -36,7 +36,6 @@ function App() {
     .then(response => response.json())
     .then(function(data){
       setResults(data.Search);
-      console.log(selectedPage)
     });
   }
 
