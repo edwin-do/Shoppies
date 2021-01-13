@@ -20,9 +20,23 @@ var apiKey = process.env.REACT_APP_API_KEY;
 
 function App() {
   const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    let url ='https://www.omdbapi.com/?apikey=' + apiKey + "&s=" + search + "&type=movie&page=1";
+    fetch(url)
+    .then(response => response.json())
+    .then(function(data){
+      setResults(data.Search);
+      setNumOfResults(data.totalResults);
+    });
+  },[search])
+
   const [results, setResults] = useState([]);
   const [numOfResults, setNumOfResults] = useState(0);
   const [list, setList] = useState([]);
+
+
+
 
   const clearSearchHandler = () => {
     setSearch("");
@@ -30,6 +44,8 @@ function App() {
     setNumOfResults(0);
   }
   const updateSearchHandler = (s) => setSearch(s);
+
+
 
   async function newPageHandler({ selected: selectedPage }){
     await fetch('https://www.omdbapi.com/?apikey=' + apiKey + "&s=" + search + "&type=movie&page=" + (selectedPage+1))
@@ -39,15 +55,15 @@ function App() {
     });
   }
 
-  async function handleSearch(s){
-    updateSearchHandler(s);
-    await fetch('https://www.omdbapi.com/?apikey=' + apiKey + "&s=" + s + "&type=movie&page=1")
-    .then(response => response.json())
-    .then(function(data){
-      setResults(data.Search);
-      setNumOfResults(data.totalResults);
-    });
-  }
+  // async function handleSearch(s){
+  //   updateSearchHandler(s);
+  //   await fetch('https://www.omdbapi.com/?apikey=' + apiKey + "&s=" + s + "&type=movie&page=1")
+  //   .then(response => response.json())
+  //   .then(function(data){
+  //     setResults(data.Search);
+  //     setNumOfResults(data.totalResults);
+  //   });
+  // }
 
   return (
     <Layout>
@@ -55,7 +71,7 @@ function App() {
       <h5 className="text-center font-weight-light">
         Nominate your favourite movies for the Shoppies!
       </h5>
-      <SearchBar search={search} handleSearch={handleSearch} clearSearchHandler={clearSearchHandler}></SearchBar>
+      <SearchBar search={search} updateSearchHandler={updateSearchHandler} clearSearchHandler={clearSearchHandler}></SearchBar>
       <UserHelp/>
       <Row>
         <Col sm={12} md={6}><ResultsList list={list} setList={setList} results={results} setResults={setResults} numOfResults={numOfResults} newPageHandler={newPageHandler} /></Col>
