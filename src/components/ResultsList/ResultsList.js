@@ -32,7 +32,7 @@ const resultsList = props =>{
           pageRangeDisplayed={1} 
           previousLabel={"←"}
           nextLabel={"→"}
-          marginPagesDisplayed={1}
+          marginPagesDisplayed={2}
           containerClassName={"pagination"}
           disabledClassName={"pagination__link_disabled"}
           activeClassName={"pagination__link_active"}
