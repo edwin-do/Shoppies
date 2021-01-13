@@ -20,16 +20,20 @@ var apiKey = process.env.REACT_APP_API_KEY;
 
 function App() {
   const [search, setSearch] = useState("");
-
+  const [page, setPage] = useState(1);
+  const updateSearchHandler = (s) => setSearch(s);
+  const clearSearchHandler = () => setSearch("");
+  const newPageHandler = ({selected: selectedPage}) => setPage(selectedPage+1);
   useEffect(() => {
-    let url ='https://www.omdbapi.com/?apikey=' + apiKey + "&s=" + search + "&type=movie&page=1";
+    let url ='https://www.omdbapi.com/?apikey=' + apiKey + "&s=" + search + "&type=movie&page=" + page;
     fetch(url)
     .then(response => response.json())
     .then(function(data){
       setResults(data.Search);
       setNumOfResults(data.totalResults);
     });
-  },[search])
+  },[search,page])
+ 
 
   const [results, setResults] = useState([]);
   const [numOfResults, setNumOfResults] = useState(0);
@@ -38,22 +42,14 @@ function App() {
 
 
 
-  const clearSearchHandler = () => {
-    setSearch("");
-    setResults([]);
-    setNumOfResults(0);
-  }
-  const updateSearchHandler = (s) => setSearch(s);
 
-
-
-  async function newPageHandler({ selected: selectedPage }){
-    await fetch('https://www.omdbapi.com/?apikey=' + apiKey + "&s=" + search + "&type=movie&page=" + (selectedPage+1))
-    .then(response => response.json())
-    .then(function(data){
-      setResults(data.Search);
-    });
-  }
+  // async function newPageHandler({ selected: selectedPage }){
+  //   await fetch('https://www.omdbapi.com/?apikey=' + apiKey + "&s=" + search + "&type=movie&page=" + (selectedPage+1))
+  //   .then(response => response.json())
+  //   .then(function(data){
+  //     setResults(data.Search);
+  //   });
+  // }
 
   // async function handleSearch(s){
   //   updateSearchHandler(s);
