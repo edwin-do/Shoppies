@@ -38,7 +38,7 @@ function Banner(props) {
           <Button variant="secondary" onClick={clearListHandler}>
             Restart with new list
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="danger" onClick={handleClose}>
             Change Nominations
           </Button>
         </Modal.Footer>
