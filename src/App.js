@@ -47,7 +47,6 @@ function App() {
     .then(function(data){
       setResults(data.Search);
       setNumOfResults(data.totalResults);
-      console.log(data.totalResults);
     });
   }
 

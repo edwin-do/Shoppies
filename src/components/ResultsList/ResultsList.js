@@ -37,7 +37,7 @@ const resultsList = props =>{
           disabledClassName={"pagination__link_disabled"}
           activeClassName={"pagination__link_active"}
         />
-        : <p>End of Results</p>
+        : null
         }
 
       </div>)
