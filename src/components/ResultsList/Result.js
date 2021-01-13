@@ -24,12 +24,12 @@ return (
     <div className="card bg-dark">
       <div className="card-body">
           <Row>
-            <Col sm={3}>
+            <Col xs={3}>
               {props.poster === "N/A" 
               ? <p>Image Not Available</p>
               : <Image src={props.poster} rounded fluid />}
             </Col>
-            <Col sm={9} >
+            <Col xs={9} >
             <p className="card-title">{props.Title} (<span className="card-text">{props.Year}</span>)
             { !props.isNominated 
                   ? <button className="btn float-right bg-transparent button-small text-light" 
