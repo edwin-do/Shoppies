@@ -25,10 +25,11 @@ const resultsList = props =>{
           }}
         
         )}
+        {props.numOfResults > 10 ? 
         <ReactPaginate 
           onPageChange={props.newPageHandler} 
-          pageCount={props.numOfResults/10} 
-          pageRangeDisplayed={2} 
+          pageCount={Math.ceil(props.numOfResults/10)} 
+          pageRangeDisplayed={1} 
           previousLabel={"←"}
           nextLabel={"→"}
           marginPagesDisplayed={1}
@@ -36,6 +37,8 @@ const resultsList = props =>{
           disabledClassName={"pagination__link_disabled"}
           activeClassName={"pagination__link_active"}
         />
+        : <p>End of Results</p>
+        }
 
       </div>)
       }

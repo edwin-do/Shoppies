@@ -27,6 +27,7 @@ function App() {
   const clearSearchHandler = () => {
     setSearch("");
     setResults([]);
+    setNumOfResults(0);
   }
   const updateSearchHandler = (s) => setSearch(s);
 
