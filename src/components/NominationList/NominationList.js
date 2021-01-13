@@ -2,7 +2,7 @@ import React from 'react';
 import Result from "../ResultsList/Result";
 import Button from 'react-bootstrap/Button'
 
-const NominationList = props =>{ 
+const nominationList = props =>{ 
 
     return (
       <div>
@@ -24,4 +24,4 @@ const NominationList = props =>{
       )
 }
 
-export default NominationList;
+export default nominationList;

@@ -16,7 +16,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 library.add(faFacebook, faTwitter, faLinkedin, faShopify, faEnvelope, faSearch, faPlusCircle, faTrashAlt, faInfoCircle, faTimesCircle);
-
 var apiKey = process.env.REACT_APP_API_KEY;
 
 function App() {
@@ -24,7 +23,7 @@ function App() {
   const [page, setPage] = useState(1);
   const [numOfResults, setNumOfResults] = useState(0);
 
-  const updateSearchHandler = (s) => setSearch(s);
+  const updateSearchHandler = (s) => {setSearch(s); setPage(1)};
   const clearSearchHandler = () => setSearch("");
   const newPageHandler = ({selected: selectedPage}) => setPage(selectedPage+1);
 
