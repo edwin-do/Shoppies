@@ -1,7 +1,5 @@
 import React from 'react';
 import Result from './Result';
-import ReactPaginate from 'react-paginate';
-import './ResultList.css';
 
 const resultsList = props =>{
 
@@ -27,20 +25,6 @@ const resultsList = props =>{
           }}
         
         )}
-        {props.numOfResults > 10 ? 
-        <ReactPaginate 
-          onPageChange={props.newPageHandler} 
-          pageCount={Math.ceil(props.numOfResults/10)} 
-          pageRangeDisplayed={1} 
-          previousLabel={"←"}
-          nextLabel={"→"}
-          marginPagesDisplayed={2}
-          containerClassName={"pagination"}
-          disabledClassName={"pagination__link_disabled"}
-          activeClassName={"pagination__link_active"}
-        />
-        : null
-        }
 
       </div>)
       }
