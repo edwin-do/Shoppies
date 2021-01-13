@@ -13,7 +13,7 @@ const searchBar = props => {
         placeholder="Search for a movie to nominate"
         aria-label="Search movie"
         aria-describedby="basic-addon2"
-        onChange={e => props.handleSearch(e.target.value)}
+        onChange={e => props.updateSearchHandler(e.target.value)}
         value={props.search}
         />
         <InputGroup.Append onClick={props.clearSearchHandler}>
