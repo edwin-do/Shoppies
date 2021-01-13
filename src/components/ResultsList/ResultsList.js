@@ -8,7 +8,7 @@ const resultsList = props =>{
   // checks if results exist
   if (props.results){
 
-    // console.log(props.results);
+    console.log(props.results);
 
     // check limit and if it exists in nomination list
     return (
