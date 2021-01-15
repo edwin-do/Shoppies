@@ -1,12 +1,12 @@
 # The Shoppies
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and developed for the Shopify 2021 Summer UX/Web Developer application. This application allows the user to add and remove movies to a nomination list from the search results. Search results are updated as the search term is updated. It also includes shareable links to Facebook, Linkedin, Twitter and email.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and developed for the Shopify 2021 Summer UX/Web Developer application. This application allows the user to add and remove movies to a nomination list from the search results. Search results are updated as the search term is updated. The technical aspects were achivieved using React useState and useEffect Hooks. It also includes shareable links to Facebook, Linkedin, Twitter and email.
 
 To try this application, you can go [here](https://edwin-do-shoppies.netlify.app/).
 
 ## Installation
 
-Run the following commands:
+Run the following commands to run the application locally:
 
 Clone this repo into 
 ```bash
@@ -37,8 +37,14 @@ Remove the nomination at anytime using the trash icon.
 
 Instructions are provided in details via the "Need help?" button. 
 
-## Development Notes
+More results can be viewed in the pagination at the bottom of the results!
 
-Coming soon!
+You can share and tell your friends to nominate their movies via Facebook, Twitter, LinkedIn or Email when you're done!
+
+
+
+
+
+
 
 
